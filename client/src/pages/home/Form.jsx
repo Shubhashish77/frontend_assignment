@@ -5,7 +5,6 @@ import { TextField } from "@mui/material";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import moment from "moment";
 
 
 const StyledForm = styled.form`
@@ -38,7 +37,7 @@ const Button = styled.button`
 
 `;
 
-const Form = ({ setQueryData, refetch, setEnabled }) => {
+const Form = ({ setQueryData, setEnabled }) => {
 
     const formatDate = (date) => {
         var d = new Date(date),
@@ -70,7 +69,7 @@ const Form = ({ setQueryData, refetch, setEnabled }) => {
                     }
                     if (!values.endDate) {
                         errors.endDate = "Required";
-                    } else if (new Date(values.startDate) - new Date(values.endDate) >= 7) {
+                    } else if (Math.floor(Math.abs(new Date(values.startDate) - new Date(values.endDate)) / (1000 * 60 * 60 * 24)) > 7) {
                         errors.endDate = "Date range must be less than equal to 7 ";
                     }
                     return errors;
@@ -81,7 +80,6 @@ const Form = ({ setQueryData, refetch, setEnabled }) => {
                         setQueryData((prevState) => ({ ...prevState, values }));
                         setSubmitting(false);
                         setEnabled(true);
-                        // refetch();
                     }, 400);
                 }}
             >
@@ -95,7 +93,6 @@ const Form = ({ setQueryData, refetch, setEnabled }) => {
                     isSubmitting,
                     handleSubmit,
                     handleReset
-                    /* and other goodies */
                 }) => (
                     <StyledForm onSubmit={handleSubmit}>
                         <Wrapper>
@@ -109,7 +106,7 @@ const Form = ({ setQueryData, refetch, setEnabled }) => {
                                 value={values.stockName}
 
                             />
-                            {(errors.stockName) && <Error>{errors.stockName}</Error>}
+                            {(errors.stockName || touched.stockName) && <Error>{errors.stockName}</Error>}
                         </Wrapper>
                         <Wrapper>
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -125,7 +122,7 @@ const Form = ({ setQueryData, refetch, setEnabled }) => {
                                 />
 
                             </LocalizationProvider>
-                            {(errors.startDate) && <Error>{errors.startDate}</Error>}
+                            {(errors.startDate || touched.startDate) && <Error>{errors.startDate}</Error>}
                         </Wrapper>
                         <Wrapper>
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -141,9 +138,9 @@ const Form = ({ setQueryData, refetch, setEnabled }) => {
                                 />
 
                             </LocalizationProvider>
-                            {errors.endDate && <Error>{errors.endDate}</Error>}
+                            {(errors.endDate || touched.endDate) && <Error>{errors.endDate}</Error>}
                         </Wrapper>
-                        <Button type="submit" className="btn btn-lg btn-outline-success mt-4 mb-4" disabled={isSubmitting}>Submit</Button>
+                        <Button type="submit" disabled={isSubmitting}>Submit</Button>
                     </StyledForm>
                 )}
             </Formik>

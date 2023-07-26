@@ -35,7 +35,6 @@ app.post('/api/fetchStockData', async (req, res) => {
     // YOUR CODE GOES HERE, PLEASE DO NOT EDIT ANYTHING OUTSIDE THIS FUNCTION
 
     const { stockName, startDate, endDate } = req.body.values;
-    console.log(stockName, startDate, endDate, process.env.API_KEY)
     const url = `https://api.polygon.io/v2/aggs/ticker/${stockName}/range/1/day/${startDate}/${endDate}?adjusted=true&sort=asc&limit=120&apiKey=${process.env.API_KEY}`;
     // const url = `https://api.polygon.io/v1/open-close/${stockName}/2023-01-09?adjusted=true&apiKey=eUuG7b7g63l03nCXGW2xAlENA_5sGqU5`
     console.log(url);
@@ -44,8 +43,6 @@ app.post('/api/fetchStockData', async (req, res) => {
             method: 'get',
             url: url,
         });
-        // let result = response.data.results.map(data => data.ticker);
-        // const data = await response.data;
         res.status(200).json({
             status: "success",
             data: response.data

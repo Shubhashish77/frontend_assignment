@@ -20,6 +20,7 @@ const StyledTooltip = styled.div`
   opacity: 0.9;
   font-weight: 800;
   padding: 10px;
+  max-width: 200px;
 `;
 
 const Desc = styled.p`
@@ -38,7 +39,7 @@ const Chart = ({ formatterData }) => {
                     <Desc color="#e8d31d" className="label">{`High : ${payload[0].payload.high}`}</Desc>
                     <Desc color="#cf1578" className="label">{`Low : ${payload[0].payload.low}`}</Desc>
                     <Desc color="#ff6e40" className="label">{`Volume : ${payload[0].payload.volume}`}</Desc>
-                    <Desc className="desc">Volume is round-off to 5 decimal place</Desc>
+                    <Desc className="desc">{`Volume is normalized by dividing it with 100000 so its actual value is ${payload[0].payload.volume * 100000}`}</Desc>
                 </StyledTooltip>
             );
         }

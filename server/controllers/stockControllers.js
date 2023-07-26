@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const stockNameApi = `https://api.polygon.io/v3/reference/tickers?market=stocks&active=true&order=asc&limit=50&sort=ticker&apiKey=eUuG7b7g63l03nCXGW2xAlENA_5sGqU5`;
+const stockNameApi = `https://api.polygon.io/v3/reference/tickers?market=stocks&active=true&order=asc&limit=50&sort=ticker&apiKey=${process.env.API_KEY}`;
 
 
 exports.getStockName = async (req, res) => {
@@ -17,7 +17,7 @@ exports.getStockName = async (req, res) => {
 }
 
 // exports.getStockData = async (req, res) => {
-//     const url = `https://api.polygon.io/v2/aggs/ticker/${stockName}/range/1/day/${startDate}/${endDate}?adjusted=true&sort=asc&limit=120&apiKey=eUuG7b7g63l03nCXGW2xAlENA_5sGqU5`
+//     const url = `https://api.polygon.io/v2/aggs/ticker/${stockName}/range/1/day/${startDate}/${endDate}?adjusted=true&sort=asc&limit=120&apiKey=${process.env.API_KEY}`
 
 
 // }

@@ -36,7 +36,6 @@ app.post('/api/fetchStockData', async (req, res) => {
 
     const { stockName, startDate, endDate } = req.body.values;
     const url = `https://api.polygon.io/v2/aggs/ticker/${stockName}/range/1/day/${startDate}/${endDate}?adjusted=true&sort=asc&limit=120&apiKey=${process.env.API_KEY}`;
-    // const url = `https://api.polygon.io/v1/open-close/${stockName}/2023-01-09?adjusted=true&apiKey=eUuG7b7g63l03nCXGW2xAlENA_5sGqU5`
     console.log(url);
     try {
         const response = await axios({

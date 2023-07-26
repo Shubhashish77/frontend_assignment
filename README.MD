@@ -63,8 +63,8 @@ The task is to build a webpage to display the trade statistics (Open, High, Low,
    ```
 7. Done!!!
 
-![Alt Text](https://drive.google.com/file/d/1eem3jaAWtndlGTxghje1BmvFX-CSAM8v/view?usp=sharing)
-![Alt Text](https://drive.google.com/file/d/1HDKu7jdAYW2C_2HIRO1ObumsLu9sZftJ/view?usp=sharing)
-![Alt Text](https://drive.google.com/file/d/1meWt9DF1vcZoqUkYvAI78nWpnOQgwoXh/view?usp=sharing)
-![Alt Text](https://drive.google.com/file/d/1oBGeqql6VeV04OUvIuWv2CmS7ZcoKx0f/view?usp=sharing)
-![Alt Text](https://drive.google.com/file/d/1O4f5HrrROxkUnzuC1lQ3ByRG_XzR0ddk/view?usp=sharing)
+![Alt Text](https://drive.google.com/uc?export=view&id=1eem3jaAWtndlGTxghje1BmvFX-CSAM8v)
+![Alt Text](https://drive.google.com/uc?export=view&id=1HDKu7jdAYW2C_2HIRO1ObumsLu9sZftJ)
+![Alt Text](https://drive.google.com/uc?export=view&id=1meWt9DF1vcZoqUkYvAI78nWpnOQgwoXh)
+![Alt Text](https://drive.google.com/uc?export=view&id=1oBGeqql6VeV04OUvIuWv2CmS7ZcoKx0f)
+![Alt Text](https://drive.google.com/uc?export=view&id=1O4f5HrrROxkUnzuC1lQ3ByRG_XzR0ddk)
